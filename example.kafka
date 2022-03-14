@@ -1,0 +1,18 @@
+PRODUCER keyed-message
+topic: topic-test
+key: mykeyq
+record content
+
+###
+
+PRODUCER non-keyed-json-message
+topic: topic-test
+{
+    "type": "my_test_event-{{random.number}}"
+}
+
+###
+CONSUMER consumer-group-id
+topic: topic-test
+partitions: 0
+from: 1
